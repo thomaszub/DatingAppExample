@@ -5,6 +5,7 @@ project.lock.json
 *.pyc
 nupkg/
 appsettings.json
+datingapp.db
 
 # Visual Studio Code
 .vscode
