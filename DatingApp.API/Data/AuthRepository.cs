@@ -1,10 +1,7 @@
-using System;
 using System.Threading.Tasks;
-using System.Text;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 using DatingApp.API.Models;
+using DatingApp.API.Helpers;
 
 namespace DatingApp.API.Data
 {
@@ -16,21 +13,6 @@ namespace DatingApp.API.Data
       _context = context;
     }
 
-    private (byte[], byte[]) CreatePasswordHash(string password)
-    {
-      using var hmac = new HMACSHA512();
-      byte[] passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-      byte[] passwordSalt = hmac.Key;
-      return (passwordHash, passwordSalt);
-    }
-
-    private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-    {
-      using var hmac = new HMACSHA512(passwordSalt);
-      byte[] computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-      return computedHash.SequenceEqual(passwordHash);
-    }
-
     public async Task<User> Login(string username, string password)
     {
       var user = await _context.Users.FirstOrDefaultAsync(
@@ -38,7 +20,7 @@ namespace DatingApp.API.Data
       );
       if (user == null)
         return null;
-      if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+      if (!Passwords.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
         return null;
 
       return user;
@@ -46,7 +28,7 @@ namespace DatingApp.API.Data
 
     public async Task<User> Register(User user, string password)
     {
-      (byte[] passwordHash, byte[] passwordSalt) = CreatePasswordHash(password);
+      (byte[] passwordHash, byte[] passwordSalt) = Passwords.CreatePasswordHash(password);
 
       user.PasswordHash = passwordHash;
       user.PasswordSalt = passwordSalt;
