@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "f335c556-16b7-47fd-a49f-1d9a2b513b94",
+		"name": "DatingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/api/users/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTc4MDYzMTcxLCJleHAiOjE1NzgxNDk1NzEsImlhdCI6MTU3ODA2MzE3MX0.fMIZjufW0_8uy9pdkKTFv2nvKFEy6RLeqVvC8DsvSWJsy7V5bbKwnBCC3iaIQsllJpwqs_Ja7LPXLarP3jeUdg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"lola\",\n\t\"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/users/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTc4MDYzMTcxLCJleHAiOjE1NzgxNDk1NzEsImlhdCI6MTU3ODA2MzE3MX0.fMIZjufW0_8uy9pdkKTFv2nvKFEy6RLeqVvC8DsvSWJsy7V5bbKwnBCC3iaIQsllJpwqs_Ja7LPXLarP3jeUdg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"introduction\": \"Nulla excepteur sit anim ex do qui laboris officia eiusmod ut incididunt. Enim occaecat sint dolor esse et enim. Ad cupidatat exercitation ea id eiusmod nostrud amet Lorem sint. Laboris cupidatat aute dolor ad eu tempor elit ea tempor quis et. Lorem eiusmod commodo cillum id aute nisi fugiat. Aute laborum tempor ullamco elit exercitation veniam commodo elit dolor.\\r\\n\",\n    \"lookingFor\": \"Non do nostrud voluptate cupidatat et proident enim labore voluptate incididunt labore. Incididunt consectetur dolor proident nulla tempor et ipsum anim duis aute commodo duis. Est ullamco fugiat velit exercitation sunt enim duis nisi laborum culpa. Magna reprehenderit excepteur commodo nisi ullamco pariatur laboris. Ullamco fugiat eiusmod veniam duis elit. Cupidatat non occaecat consectetur sunt qui anim. In commodo in deserunt et veniam ad nulla.\\r\\n\",\n    \"interests\": \"Dolore nisi eiusmod ut irure ullamco nulla dolore est sit tempor quis.\",\n    \"city\": \"Efland\",\n    \"country\": \"Burundi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
