@@ -6,7 +6,9 @@
               [ngClass]="photo.isMain ? 'btn-success active' : 'btn-secondary'"
               class="btn btn-sm mr-1"
               type="button">Main</button>
-      <button class="btn btn-sm btn-danger" type="button">
+      <button (click)="deletePhoto(photo.id)" [disabled]="photo.isMain"
+              class="btn btn-sm btn-danger"
+              type="button">
         <i class="fa fa-trash-o"></i>
       </button>
     </div>

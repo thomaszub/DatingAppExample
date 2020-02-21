@@ -5,6 +5,7 @@ import * as alertify from "alertifyjs";
   providedIn: "root"
 })
 export class AlertifyService {
+  private title = "Dating App";
   constructor() {}
 
   confirm(message: string, okCallback: () => any) {
@@ -12,7 +13,7 @@ export class AlertifyService {
       if (e) {
         okCallback();
       }
-    });
+    }).set({title: this.title});
   }
 
   success(message: string) {
